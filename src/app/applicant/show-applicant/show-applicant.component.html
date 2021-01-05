@@ -1,0 +1,43 @@
+<div class="col-4">
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    </div>
+    <input type="text" [(ngModel)]="term">
+    <div class="card-columns" style="margin:2%">
+      <div class="card" *ngFor="let applicant of applicantList |filter:term | paginate: { itemsPerPage: 6, currentPage: p }" style="margin:2%">
+        <!-- <img src="https://feweek.co.uk/wp-content/uploads/2018/06/T-level-tetris.jpg" class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h3 class="card-title">Name:{{applicant.name}}</h3>
+          <h5>Email : {{applicant.email}}</h5>
+          <h4>Mobile :{{applicant.number}}</h4>
+          <!-- <h3>Statue :{{applicant.nagp_status}}</h3> -->
+          <p class="card-text">Batch: {{applicant.batch.year}} | {{applicant.batch.technology}}</p>
+          <button type="button" class="btn btn-success" (click)="viewProfile(applicant)">View Profile</button>
+          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          <hr>
+          <p class="card-text">Statue :{{applicant.nagp_status}}</p>
+        </div>
+      </div>
+      <!--  level data  -->
+
+      <!-- <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div> -->
+    </div>

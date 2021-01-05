@@ -1,0 +1,27 @@
+<div class="col-4">
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    </div>
+    <input type="text" [(ngModel)]="term">
+    <div class="card-columns" style="margin:2%">
+      <div class="card" *ngFor="let activity of activityList |filter:term | paginate: { itemsPerPage: 6, currentPage: p }; index as i;"
+        style="margin:2%">
+        <!-- <img src="https://feweek.co.uk/wp-content/uploads/2018/06/T-level-tetris.jpg" class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h3 class="card-title">{{activity.name}}</h3>
+          <h5>Qualification Points : {{activity.qualification_points}}</h5>
+          <h5>Level :{{activity.level.name}}</h5>
+          <h5>Batch :{{activity.batch.technology}} | {{activity.batch.year}}</h5>
+          <h6>Started on:{{activity.batch.startdate}}</h6>
+          <p class="card-text">{{activity.description}}</p>
+          <!-- <p *ngIf="isAlreadyEnrolled(activity)">Already Enrolled</p> -->
+          <button type="button" class="btn btn-success" (click)="enroll(activity)">Enroll</button>
+
+          <!-- <div *ngIf="!isAlreadyEnrolledBoolean ; then thenBlock"></div>
+          <ng-template #thenBlock>Already Enrolled</ng-template>
+          <div *ngIf="!isAlreadyEnrolledBoolean ; then thenBlock2"></div>
+          <ng-template #thenBlock2>Enrolled Successfully</ng-template>
+           -->
+          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+        </div>
+      </div>
+    </div>

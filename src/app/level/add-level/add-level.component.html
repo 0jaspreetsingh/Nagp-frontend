@@ -1,0 +1,25 @@
+<form (ngSubmit)="addLevel()" #f="ngForm">
+  <h3>Add Level</h3>
+    <div class="form-group">
+      <label for="level_id">Level Identifier</label>
+      <input type="text" class="form-control" id="level_id" [(ngModel)]="checkIfAvailable" (ngModelChange)="onChange($event)" name="level_id" #levelId="ngModel" aria-describedby="emailHelp" placeholder="Level Identifier" ngModel >
+      <small id="emailHelp" class="form-text text-muted">{{message}}</small>
+    </div>
+    <div class="form-group">
+      <label for="number">Level Number</label>
+      <input type="number" class="form-control" name="number" id="number" ngModel #levelNo="ngModel" placeholder="Level No" required>
+    </div>
+    <div class="form-group">
+        <label for="name">Level Name</label>
+        <input type="text" class="form-control" name="name" id="name" ngModel #levelName="ngModel" placeholder="Level name" required>
+      </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" name="description" id="description" ngModel #description="ngModel" placeholder="Description" required>
+      </div>
+        <div class="form-group">
+            <label for="qualification_points">Qualification Points</label>
+            <input type="number" class="form-control" name="qualification_points" id="qualification_points" ngModel #qualificationPoints="ngModel" placeholder="Qualification Points" required>
+          </div>
+    <button type="submit" [disabled]="!f.valid || !levelValid" class="btn btn-primary">Submit</button>
+  </form>

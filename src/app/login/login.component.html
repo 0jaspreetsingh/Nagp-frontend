@@ -1,0 +1,39 @@
+<div class="error-pagewrap">
+    <div class="error-page-int">
+        <div class="text-center m-b-md custom-login">
+            <h3>PLEASE LOGIN TO NAGP</h3>
+            <p>This is where the learning begins!</p>
+            <p>{{message}}</p>
+        </div>
+        <div class="content-error">
+            <div class="hpanel">
+                <div class="panel-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label class="control-label" for="username">Username</label>
+                            <input type="text" [(ngModel)]="name" placeholder="example@gmail.com" title="Please enter you username" required="" value=""
+                                name="username" id="username" class="form-control">
+                            <span class="help-block small">Your unique username to app</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="password">Password</label>
+                            <input type="password" [(ngModel)]="password" title="Please enter your password" placeholder="******" required="" value=""
+                                name="password" id="password" class="form-control">
+                            <span class="help-block small">Yur strong password</span>
+                        </div>
+                        <!-- <div class="checkbox login-checkbox">
+                            <label>
+                  <input type="checkbox" class="i-checks" (change)="rememberMe($event)"> Remember me </label>
+                            <p class="help-block small">(if this is a private computer)</p>
+                        </div> -->
+                        <button class="btn btn-success btn-block loginbtn" (click)="authenticateUser()">Admin Login</button>
+                        <button class="btn btn-success btn-block loginbtn" (click)="authenticateApplicant()">Applicant Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="text-center login-footer">
+            <p>Copyright © 2018. All rights reserved.</p>
+        </div>
+    </div>
+</div>

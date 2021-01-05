@@ -1,0 +1,40 @@
+<div class="col-4">
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    </div>
+    <input type="text" [(ngModel)]="term">
+    <div class="card-columns" style="margin:2%">
+      <div class="card" *ngFor="let batch of batchList |filter:term | paginate: { itemsPerPage: 6, currentPage: p } ; index as i" style="margin:2%">
+        <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNAILTe6OoRj1jkFXxGsm5MW1cczyWiU9DA7j40FqRsLJcsiaLCA" class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h3 class="card-title">{{batch.technology}} | {{batch.year}}</h3>
+          <h5>Qualification Points : {{batch.qualification_points}}</h5>
+          <h6>Start Date : {{batch.startdate}}</h6>
+          <p class="card-text">{{batch.description}}</p>
+          <button type="button" class="btn btn-success" (click)="goToEdit(batch)">Edit</button>
+          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+        </div>
+      </div>
+      <!--  level data  -->
+
+      <!-- <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div> -->
+    </div>

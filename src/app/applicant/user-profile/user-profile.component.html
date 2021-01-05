@@ -1,0 +1,25 @@
+<!-- <h3 class="text-center">Profile</h3> -->
+<div class="alert alert-secondary text-center" role="alert">
+  <h3>Profile <i class="fas fa-user"></i></h3>
+</div>
+<div class="card text-center">
+  <div class="card-header">
+  <h3>{{viewApplicant.name}}</h3>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Email : {{viewApplicant.email}}</h5>
+    <h6>Mobile : {{viewApplicant.number}}</h6>
+    <h6>Status : {{viewApplicant.nagp_status}}</h6>
+    <h6>Level : {{viewApplicant.level.name}}</h6>
+    <h6>Batch : {{viewApplicant.batch.technology}} | {{viewApplicant.batch.year}}</h6>
+    <h6 *ngIf="applicantPoints!=undefined">Points Earned: {{applicantPoints.totalPoints}}</h6>
+    <h6>Points Needed: {{viewApplicant.level.qualification_points}}</h6>
+    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+  </div>
+  <div class="card-footer text-muted">
+  Employee Id : {{viewApplicant.employee_id}}
+  </div>
+</div>
+
+<router-outlet></router-outlet>

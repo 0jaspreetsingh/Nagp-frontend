@@ -1,0 +1,51 @@
+<div class="col-4">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+      </div>
+      <input type="text" [(ngModel)]="term">
+<div class="card-columns" style="margin:2%">
+  <div class="card" *ngFor="let level of levelList |filter:term | paginate: { itemsPerPage: 6, currentPage: p }; index as i" style="margin:2%" >
+    <img src="https://feweek.co.uk/wp-content/uploads/2018/06/T-level-tetris.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title">{{level.name}}</h3>
+      <h5>Qualification Points : {{level.qualification_points}}</h5>
+      <p class="card-text">{{level.description}}</p>
+      <button type="button" class="btn btn-success" (click)="goToEdit(level)">Edit</button>
+      <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+    </div>
+  </div>
+<!--  level data  -->
+
+  <!-- <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div> -->
+</div>
+
+
+<div class="card-group" style="margin:2%">
+    <div class="card">
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+</div>  

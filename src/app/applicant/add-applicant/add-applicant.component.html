@@ -1,0 +1,44 @@
+<form (ngSubmit)="addApplicant()" #f="ngForm">
+  <h3>Add Level</h3>
+    <div class="form-group">
+      <label for="name">Employee Name</label>
+      <input type="text" class="form-control" id="name" name="name" #name="ngModel" aria-describedby="name" placeholder="Level Identifier" ngModel >
+      <!-- <small id="emailHelp" class="form-text text-muted">{{message}}</small> -->
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email" id="email" ngModel #email="ngModel" placeholder="Email id" required>
+    </div>
+    <div class="form-group">
+        <label for="number">Phone Number</label>
+        <input type="number" class="form-control" name="number" id="number" ngModel #number="ngModel" placeholder="+ 91 ---------" required>
+      </div>
+      <div class="form-group">
+        <label for="selectLevel">Level : </label>
+        <select id="level_id" name="level_id" #level_id="ngModel" ngModel required>
+          <option value="">Choose...</option>
+            <option [value]="level.level_id" *ngFor="let level of levelList">{{level.name}} ({{level.number}}) </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="selectBatch">Batch : </label>
+        <select id="batch_id" name="batch_id" #batch_id="ngModel" ngModel required>
+          <option value="">Choose...</option>
+            <option [value]="batch.batch_id" *ngFor="let batch of batchList">{{batch.technology}} | {{batch.year}} </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="selectStatus">Status : </label>
+        <select id="nagp_status" name="nagp_status" #nagp_status="ngModel" ngModel required>
+          <option value="">Choose...</option>
+          <option value="ASPIRING">ASPIRING</option>
+          <option value="TAGGED">TAGGED</option>
+          <option value="DROPPED">DROPPED</option>
+        </select>
+      </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password" ngModel #password="ngModel" placeholder="******" required>
+          </div>
+    <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Submit</button>
+  </form>

@@ -1,0 +1,46 @@
+<div class="col-md-4 col-md-offset-4">
+<form (ngSubmit)="addActivity()" #f="ngForm">
+  <h3>Add Activity</h3>
+    <div class="form-group">
+      <label for="activity_id">Activity Identifier</label>
+      <input type="text" class="form-control" id="activity_id" [(ngModel)]="checkIfAvailable" (ngModelChange)="onChange($event)" name="activity_id" #levelId="ngModel" aria-describedby="emailHelp" placeholder="Activity Identifier" ngModel >
+      <small id="text" class="form-text text-muted" style="color: green">{{message}}</small>
+    </div>
+    <!-- <div class="form-group">
+      <label for="year">Year</label>
+      <input type="number" class="form-control" name="year" id="year" ngModel #year="ngModel" placeholder="Year" required>
+    </div> -->
+    <div class="form-group">
+        <label for="name">Activity Name</label>
+        <input type="text" class="form-control" name="name" id="name" ngModel #name="ngModel" placeholder="name" required>
+      </div>
+      <!--  level list and batch list -->
+      <div class="form-group">
+        <label for="selectLevel">Level : </label>
+        <select id="level" name="level" #level="ngModel" ngModel required>
+          <option value="">Choose...</option>
+            <option [value]="level.level_id" *ngFor="let level of levelList">{{level.name}} ({{level.number}}) </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="selectBatch">Batch : </label>
+        <select id="batch" name="batch" #batch="ngModel" ngModel required>
+          <option value="">Choose...</option>
+            <option [value]="batch.batch_id" *ngFor="let batch of batchList">{{batch.technology}} | {{batch.year}} </option>
+        </select>
+      </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" name="description" id="description" ngModel #description="ngModel" placeholder="Description" required>
+      </div>
+        <div class="form-group">
+            <label for="name">Points</label>
+            <input type="number" class="form-control" name="points" id="name" ngModel #points="ngModel" placeholder="Points" required>
+          </div>
+          <div class="form-group">
+            <label for="max_qualification">Max Qualification</label>
+            <input type="number" class="form-control" name="max_qualification" id="max_qualification" ngModel #max_qualification="ngModel" placeholder="max qualification" required>
+          </div>
+    <button type="submit" [disabled]="!f.valid || !activityValid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

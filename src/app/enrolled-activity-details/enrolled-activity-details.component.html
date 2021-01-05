@@ -1,0 +1,41 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Activity Details</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{activityDetails.name}}</h6>
+    <p class="card-text">Description: {{activityDetails.description}}</p>
+    <p *ngIf="activityDetails.startdate!=null">Start Date :{{activityDetails.startdate}}</p>
+    <p *ngIf="activityDetails.donedate!=null">Done Date :{{activityDetails.donedate}}</p>
+    <p *ngIf="activityDetails.completiondate!=null">Completion Date :{{activityDetails.completiondate}}</p>
+    <p>Qualification Points :{{activityDetails.points}}</p>
+    <p>Score : {{activityDetails.score}}</p>
+    <p>Status :{{activityDetails.status}}</p>
+  </div>
+</div>
+<hr>
+<form class="form-inline" *ngIf="(activityDetails.status=='DONE'||activityDetails.status=='REVIEW_PENDING')&&adminLoggedIn"  #formcontrol="ngForm">
+    <div class="form-group mb-2">
+      <label for="scoree" class="sr-only">Email</label>
+      <input type="text" readonly class="form-control-plaintext" id="scoree" value="Percent Score" required>
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="score" class="sr-only">%</label>
+      <input type="number" min="1" max="100" class="form-control" id="score" placeholder="points" name="score" [(ngModel)]="percentscore" required>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2"
+    (click)="updateStatus('COMPLETED')" [disabled]="!formcontrol.form.valid">Completed</button>
+  </form>
+<div class="btn-group">
+    <button class="btn btn-primary" *ngIf="activityDetails.status=='PLANNED'&&applicantLoggedin" (click)="updateStatus('IN_PROGRESS')">In Progress</button>
+    <button class="btn btn-primary" *ngIf="activityDetails.status=='IN_PROGRESS'&&applicantLoggedin" (click)="updateStatus('DONE')">Done</button>
+    <button class="btn btn-primary" *ngIf="activityDetails.status=='DONE'&&adminLoggedIn" (click)="updateStatus('REVIEW_PENDING')">Review Pending</button>
+    <!-- <button class="btn btn-primary" *ngIf="(activityDetails.status=='DONE'||activityDetails.status=='REVIEW_PENDING')&&adminLoggedIn"
+      (click)="updateStatus('COMPLETED')">Completed</button> -->
+    <button class="btn btn-primary" *ngIf="(activityDetails.status=='DONE'||activityDetails.status=='REVIEW_PENDING')&&adminLoggedIn"
+      (click)="updateStatus('REVIEW_FAILED')">Review Failed</button>
+  </div>
+<hr>
+<router-outlet></router-outlet>
+
+<!-- 
+  applicantdetails:any;
+  activityDetails:any; -->

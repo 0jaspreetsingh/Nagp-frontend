@@ -1,0 +1,53 @@
+<form (ngSubmit)="editActivity()" #f="ngForm">
+    <h3>Add Activity</h3>
+      <div class="form-group">
+        <label for="activity_id">Activity Identifier</label>
+        <input type="text" class="form-control" id="activity_id" [(ngModel)]="editactivity_id" readonly name="activity_id" #levelId="ngModel" aria-describedby="emailHelp" placeholder="Activity Identifier" ngModel >
+        <small id="text" class="form-text text-muted" style="color: green">{{message}}</small>
+      </div>
+      <!-- <div class="form-group">
+        <label for="year">Year</label>
+        <input type="number" class="form-control" name="year" id="year" ngModel #year="ngModel" placeholder="Year" required>
+      </div> -->
+      <div class="form-group">
+          <label for="name">Activity Name</label>
+          <input type="text" class="form-control" name="name" id="name" [(ngModel)]="editname" #name="ngModel" placeholder="name" required ngModel>
+        </div>
+        <!--  level list and batch list -->
+        <!-- <div class="form-group">
+          <label for="selectLevel">Level : </label>
+          <select id="level" [(ngModel)]="editlevel" name="level" #level="ngModel" ngModel required>
+            <option value="">Choose...</option>
+              <option [value]="level.level_id" *ngFor="let level of levelList">{{level.name}} ({{level.number}}) </option>
+          </select>
+        </div> -->
+        <div class="form-group">
+            <label for="level">Level ID</label>
+            <input type="text" class="form-control" name="level" [(ngModel)]="editlevel" id="level" ngModel #level="ngModel" placeholder="max qualification" readonly required>
+          </div>
+        <!-- <div class="form-group">
+          <label for="selectBatch">Batch : </label>
+          <select id="batch" name="batch" [(ngModel)]="editbatch" #batch="ngModel" ngModel required>
+            <option value="">Choose...</option>
+              <option [value]="batch.batch_id" *ngFor="let batch of batchList">{{batch.technology}} | {{batch.year}} </option>
+          </select>
+        </div> -->
+        <div class="form-group">
+            <label for="batch">Batch ID</label>
+            <input type="text" class="form-control" name="batch" [(ngModel)]="editbatch" id="level" ngModel #batch="ngModel" readonly placeholder="max qualification" readonly required>
+          </div>
+      <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" name="description" [(ngModel)]="editdescription" id="description" ngModel #description="ngModel" placeholder="Description" required>
+        </div>
+          <div class="form-group">
+              <label for="name">Points</label>
+              <input type="number" class="form-control" name="points" [(ngModel)]="editpoints" id="name" ngModel #points="ngModel" placeholder="Points" required>
+            </div>
+            <div class="form-group">
+              <label for="max_qualification">Max Qualification</label>
+              <input type="number" class="form-control" name="max_qualification" [(ngModel)]="editmax_qualification" id="max_qualification" ngModel #max_qualification="ngModel" placeholder="max qualification" required>
+            </div>
+      <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Submit</button>
+      <button class="btn btn-warning"(click)="goBack()">Cancel</button>
+    </form>
